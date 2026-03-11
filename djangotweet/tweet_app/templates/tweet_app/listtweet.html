@@ -5,7 +5,7 @@
 <h1>ListTweet Page</h1>
 <ul>
     {% for tweet in tweets%}
-    <li>{{tweet}}</li>
+    <li><h2>{{tweet.username}} --> {{tweet.message}}</h2></li>
     {% endfor %}
 </ul>
 
