@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from . import models
 from django.urls import reverse
 from tweet_app.forms import AddTweetForm, AddTweetModelForm
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def listtweet(request):
@@ -46,3 +48,8 @@ def addtweetbymodelform(request):
     else:
         form = AddTweetModelForm()
         return render(request,'tweet_app/addtweetbymodelform.html', context={"form":form})
+
+@login_required
+def logout_handler(request):
+    logout(request)
+    return redirect('/')

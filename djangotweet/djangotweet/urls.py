@@ -19,5 +19,6 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",include("tweet_app.urls")) #emirkandemir.com/tweetapp
+    path("",include("tweet_app.urls")), #emirkandemir.com/tweetapp
+    path("",include('django.contrib.auth.urls')),
 ]
