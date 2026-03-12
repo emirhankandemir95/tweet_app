@@ -19,5 +19,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("tweetapp/",include("tweet_app.urls")) #emirkandemir.com/tweetapp
+    path("",include("tweet_app.urls")) #emirkandemir.com/tweetapp
 ]

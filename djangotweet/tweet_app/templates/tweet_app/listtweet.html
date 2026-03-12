@@ -2,11 +2,19 @@
 
 {% block content%}
 <br><br>
-<h1>ListTweet Page</h1>
-<ul>
-    {% for tweet in tweets%}
-    <li><h2>{{tweet.username}} --> {{tweet.message}}</h2></li>
-    {% endfor %}
-</ul>
 
+
+    <div class="container" style="width: 50%;">
+    {% for tweet in tweets%}
+    <div class="card" style="padding:10px">
+        <div class="card-header" style="background-color: cornflowerblue;">
+            <h4>{{tweet.username}}</h4>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{tweet.message}}</p>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
