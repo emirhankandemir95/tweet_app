@@ -15,9 +15,8 @@ def listtweet(request):
 @login_required(login_url="/login")
 def addtweet(request):
     if request.POST:
-        username = request.POST["username"]
         message = request.POST["message"]
-        models.Tweet.objects.create(username=username, message=message)
+        models.Tweet.objects.create(username=request.user, message=message)
         return redirect(reverse('tweet_app:listtweet'))
     else:
         return render(request,"tweet_app/addtweet.html")
@@ -50,8 +49,17 @@ def addtweetbymodelform(request):
     else:
         form = AddTweetModelForm()
         return render(request,'tweet_app/addtweetbymodelform.html', context={"form":form})
+
+@login_required    
+def deletetweet(request, id):
+    tweet = models.Tweet.objects.get(pk=id)
+    if request.user == tweet.username:
+        models.Tweet.objects.filter(id=id).delete()
+        return redirect('tweet_app:listtweet')
     
 class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
+
+

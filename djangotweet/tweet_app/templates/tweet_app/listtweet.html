@@ -2,8 +2,6 @@
 
 {% block content%}
 <br><br>
-
-
     <div class="container" style="width: 50%;">
     {% for tweet in tweets%}
     <div class="card" style="padding:10px">
@@ -13,7 +11,9 @@
         <div class="card-body">
             <p class="card-text">{{tweet.message}}</p>
         </div>
-
+        {% if tweet.username == user %}
+        <a href="{% url 'tweet_app:deletetweet' id=tweet.id %}" class="btn btn-danger">Delete</a>
+        {% endif %}
     </div>
     {% endfor %}
 </div>

@@ -8,5 +8,6 @@ urlpatterns = [
     path("addtweet/",views.addtweet,name="addtweet"), #emirkandemir.com/tweetapp/addtweet        
     path("addtweetbyform/",views.addtweetbyform,name="addtweetbyform"), #emirkandemir.com/tweetapp/addtweetbyform
     path("addtweetbymodelform/",views.addtweetbymodelform,name="addtweetbymodelform"), #emirkandemir.com/tweetapp/addtweetbymodelform    
-    path("signup",views.SignUpView.as_view(), name="signup")
+    path("signup",views.SignUpView.as_view(), name="signup"),
+    path("deletetweet/<int:id>",views.deletetweet, name="deletetweet")
 ]
